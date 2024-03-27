@@ -13,12 +13,13 @@ _Install NestJS and his CLI_
 - _NestJS_ work with **DECORATORS**, _decorators_ apply functionalities to classes, functions and variables. They involve, for example, a class and applies functionalities to her.
 - And it also work with **MODULES**, basically, they cofigure the classes without change all her and serve to divide the application into serveral parts. For this we can use several structures in Nest.
 - **@Module():** it is divided on four parts that work to configure the application.
-  > **_Imports:_** where stay the list of imported modules that export the providers which are required in this module
-  > **_controllers:_**: the set of controllers defined in this module which have to be instantiated
-  > **_providers:_** the providers that will be instantiated by nest injector and that may be shared at least acrosss this module
-  > **_exports:_** the subset of providers that are provided by this module and should be available in others module which import this module.
+  > - **_Imports:_** where stay the list of imported modules that export the providers which are required in this module
+  > - **_controllers:_**: the set of controllers defined in this module which have to be instantiated
+  > - **_providers:_** the providers that will be instantiated by nest injector and that may be shared at least acrosss this module
+  > - **_exports:_** the subset of providers that are provided by this module and should be available in others module which import this module.
 - NestJS also use the concepts of dependecy inversion and dependency injection.
   > - **_Dependendy inversion:_** basically, in this concept, to use dependencies, we need, for example, intialize them in the contructor function to after use them.
+  >
   > ```js
   > import { Controller, Get } from "@nestjs/common";
   > import { UserService } from "./user.service.ts";
@@ -36,6 +37,7 @@ _Install NestJS and his CLI_
   > ```
   >
   > - **_Dependency injection_**: in this concept, we don't need send dependency when we initialize a class, Nest injection system automatically know which dependencies send to each controller.
+  >
   > ```js
   > import { Module } from "@nestjs/common";
   > import { UserController } from "./user.controller.ts";
@@ -127,14 +129,18 @@ Using DTO's with NestJS is very very sample, we also use decorators, for example
         }
     }
 ```
+
 #### DTO's validation
+
 As a convetioned framework, NestJS gives us the sugestion of use class-validator, with his, we can validate our DTO's easilly with decorators
 
 **First-steps:**
 Install the class-validator and class-transformer. We need install the class-transformer
+
 - npm i class-validator class-transformer
 
 With that, we can create a file to validate our DTO
+
 ```js
 //create-user-dto.ts
 import { IsNotEmpty, Length } from "class-validator";
@@ -143,8 +149,8 @@ export class Createuser {
     @IsNotEmpty()
     @Length(3, 100)
     public name: string;
-    
-    //We also can change the default message of validator 
+
+    //We also can change the default message of validator
     @IsNotEmpty({
         message: "O ano de nasciemento é obrigatório!"
     })
@@ -154,6 +160,7 @@ export class Createuser {
     public born: string;
 }
 ```
+
 ```js
 //user.controller.ts
 import { Controller, Post, Body } from "@nestjs/common";
