@@ -1,6 +1,6 @@
 # Learnig NestJS (Introduction)
 
-**What is _"NestJS"_:** Is a js.JS conventioned framework, but allows us to do our own modifications, it is the middle ground between microsservices and convetioned frameworks, 'cause it gives us freedom to code of our own way. And it's in Typescript ^^!
+**What is _"NestJS"_:** Is a js.JS conventioned framework, but that allows us to do our own modifications, it is the middle ground between microsservices and convetioned frameworks, 'cause it gives us freedom to code of our own way. And it's in Typescript ^^!
 
 **First steps:**
 _Install NestJS and his CLI_
